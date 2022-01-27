@@ -35,7 +35,7 @@ public class LoginController {
         return response;
     }
     @RequestMapping(value = "/loginFormSubmit", method = RequestMethod.GET)
-    public ModelAndView loginSubit(HttpServletRequest request, HttpSession session) throws Exception {
+    public ModelAndView loginSubmit(HttpServletRequest request, HttpSession session) throws Exception {
         ModelAndView response = new ModelAndView();
 
         String username = request.getParameter("usernameFromForm");
