@@ -1,4 +1,4 @@
-package com.marinagaisina.casestudy.entity;
+package com.marinagaisina.casestudy.database.entity;
 
 
 import lombok.Getter;
