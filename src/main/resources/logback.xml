@@ -2,9 +2,12 @@
 <configuration>
     <include resource="org/springframework/boot/logging/logback/defaults.xml" />
     <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
-    <logger name="org.springframework" level="INFO" />
-    <logger name="casestudy" level="INFO" />
-    <logger name="org.apache.http.wire" level="INFO" />
+    <logger name="org.springframework" level="WARN" />
+<!--    <logger name="org.springframework" level="INFO" />-->
+    <logger name="casestudy" level="WARN" />
+<!--    <logger name="casestudy" level="INFO" />-->
+    <logger name="org.apache.http.wire" level="WARN" />
+<!--    <logger name="org.apache.http.wire" level="INFO" />-->
     <logger name="org.mongo" level="WARN" />
     <logger name="org.mongodb" level="WARN" />
     <Logger name="org.springframework.data.convert.CustomConversions" level="ERROR"/>

@@ -1,9 +1,11 @@
 package com.marinagaisina.casestudy.controller;
 
+import com.marinagaisina.casestudy.form.LoginFormBean;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -35,11 +37,23 @@ public class LoginController {
         return response;
     }
     @RequestMapping(value = "/loginFormSubmit", method = RequestMethod.GET)
-    public ModelAndView loginSubmit(HttpServletRequest request, HttpSession session) throws Exception {
+    public ModelAndView loginSubmit(LoginFormBean form, @RequestParam String usernameFromForm, @RequestParam String passwordFromForm,
+                                    HttpServletRequest request, HttpSession session) throws Exception {
         ModelAndView response = new ModelAndView();
 
-        String username = request.getParameter("usernameFromForm");
-        String password = request.getParameter("passwordFromForm");
+        System.out.println("usernameFromForm using @RequestParam = "+ usernameFromForm);
+        System.out.println("passwordFromForm using @RequestParam = "+ passwordFromForm);
+
+        System.out.println("usernameFromForm from LoginFormBean = "+form.getUsernameFromForm());
+        System.out.println("passwordFromForm from LoginFormBean = "+form.getPasswordFromForm());
+
+        //  TWO WAYS OF GETTING PARAMETERS FROM URL
+        //-------using request.getParameter()----------------------------
+//        String username = request.getParameter("usernameFromForm");
+//        String password = request.getParameter("passwordFromForm");
+        //-------using LogingFormBean object as a parameter:---------------
+        String username = form.getUsernameFromForm();
+        String password = form.getPasswordFromForm();
 
         // if ("tom".equals(username) && "jerry".equals(password) ){
         if (StringUtils.equals(username, "tom") && StringUtils.equals(password, "jerry")) {

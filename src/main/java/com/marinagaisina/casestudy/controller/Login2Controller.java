@@ -70,14 +70,14 @@ public class Login2Controller {
         if (StringUtils.equals(username, "tom")) {
             // when using redirect you will use the URL of the controller method
             // that you want to display.  In this case the /success RequestMapping
-            response.setViewName("redirect:http://localhost:8080/success2");
+            response.setViewName("redirect:http://localhost:8080/login2/success2");
 
         } else {
             // when using the name of a view we use the path to the JSP page
             // within the jsp folder.
             String errorMessage = (String)session.getAttribute(SESSION_ERROR_MESSAGE);
             response.addObject("errorMessage", errorMessage);
-            response.setViewName("login/login2");
+            response.setViewName("login2/login2");
         }
 
         return response;
@@ -144,7 +144,7 @@ public class Login2Controller {
             // add the username to the response model so that it can be displayed on the jsp page.
             response.addObject("loggedInUser", username);
 
-            response.setViewName("login/success2");
+            response.setViewName("login2/success2");
         } else {
             // need to implement here to redirect back to login page
             // because it means the user has requested the /success url
